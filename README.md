@@ -81,9 +81,9 @@ The application is deployed on Microsoft Azure.
 ---
 
 ## System Architecture
-
-
-[DocuMind AI System Architecture](https://github.com/Krushna-Chandra/DocuMind-AI-RAG-Project/blob/main/architecture-flow.png) ([image](https://github.com/Krushna-Chandra/DocuMind-AI-RAG-Project/raw/main/architecture-flow.png))
+<p align="center">
+  <img width="1536" height="481" alt="image" src="https://github.com/user-attachments/assets/762268fc-477c-48a7-bb12-32b2fe033172" />
+</p>
 
 The application follows a modular architecture where document loading, text splitting, embedding generation, vector storage, retrieval, and answer generation are separated into dedicated components.
 
@@ -106,7 +106,7 @@ The application follows a modular architecture where document loading, text spli
 ## RAG Pipeline
 
 <p align="center">
-  <img src="./rag-pipeline-flow.svg" alt="RAG Pipeline" width="900">
+  <img width="714" height="543" alt="image" src="https://github.com/user-attachments/assets/82d17946-73e5-4159-80ce-d82563957759" />
 </p>
 
 ### Document Ingestion
@@ -422,7 +422,7 @@ The API credentials are provided at runtime through environment variables rather
 DocuMind AI is containerized using Docker and can be deployed to Microsoft Azure.
 
 <p align="center">
-  <img src="./azure-deployment-flow.svg" alt="Azure Deployment Architecture" width="900">
+  <img width="822" height="543" alt="image" src="https://github.com/user-attachments/assets/d1e7c2a2-3226-4fb6-83f2-cd73e13abde8" />
 </p>
 
 ### Deployment Flow
