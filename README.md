@@ -1,399 +1,225 @@
-<div align="center">
+DocuMind AI — RAG Document Q&A
 
-⚡ Azure RAG Document Q&A
-
-Intelligent PDF Question Answering with Retrieval-Augmented Generation
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge/Pinecone-Vector%20DB-000000?style=for-the-badge" alt="Pinecone">
-  <img src="https://img.shields.io/badge/Groq-LLM-F54A45?style=for-the-badge" alt="Groq">
+<p align="center">
+  <strong>Retrieval-Augmented Generation application for asking natural-language questions over PDF documents.</strong>
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/Sentence%20Transformers-Embeddings-6B4FBB?style=for-the-badge" alt="Sentence Transformers">
-  <img src="https://img.shields.io/badge/Docker-Container-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-  <img src="https://img.shields.io/badge/Microsoft%20Azure-Cloud-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure">
+<p align="center">
+  <a href="YOUR_LIVE_DEMO_URL">Live Demo</a>
+  &nbsp;•&nbsp;
+  <a href="https://github.com/Krushna-Chandra/DocuMind-AI-Project">Source Code</a>
 </p>
 
-<br>
-
-<p>
-  <a href="YOUR_LIVE_DEMO_URL">
-    <img src="https://img.shields.io/badge/✦%20LIVE%20DEMO-0B84F3?style=for-the-badge" alt="Live Demo">
-  </a>
-  &nbsp;
-  <a href="https://github.com/Krushna-Chandra/DocuMind-AI-Project">
-    <img src="https://img.shields.io/badge/⌘%20SOURCE%20CODE-111827?style=for-the-badge&logo=github&logoColor=white" alt="Source Code">
-  </a>
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Pinecone-Vector%20Database-000000" alt="Pinecone">
+  <img src="https://img.shields.io/badge/Groq-LLM-FF4F4F" alt="Groq">
+  <img src="https://img.shields.io/badge/Docker-Container-2496ED?logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Azure-Deployment-0078D4?logo=microsoftazure&logoColor=white" alt="Azure">
 </p>
 
-<br>
+Overview
 
-Upload a PDF → understand its content → retrieve the right context → generate a grounded answer.
+DocuMind AI is an end-to-end Retrieval-Augmented Generation (RAG) application that allows users to upload PDF documents and ask questions about their content.
 
-</div>
+Instead of relying only on an LLM's general knowledge, the application:
 
-🖼️ Application Preview
+Extracts text from uploaded PDFs.
 
-<!--
-  Upload your screenshot directly into the repository root.
-  No docs/ or images/ folder is required.
+Splits the text into smaller chunks.
 
-  Example:
-  rag-application.png
+Generates semantic embeddings.
 
-  Then keep the filename below exactly the same.
--->
+Stores the embeddings in Pinecone.
 
-<div align="center">
+Retrieves the most relevant chunks for a question.
 
-<img src="./rag-application.png" alt="Azure RAG Document Q&A application" width="920">
+Sends the retrieved context to an LLM through Groq.
 
-<br>
+Returns a context-aware answer with source information.
 
-<sub><b>Live application interface</b> — replace the filename above with your actual screenshot filename.</sub>
+The application is implemented as a modular FastAPI service and can be containerized with Docker and deployed to Microsoft Azure.
 
-</div>
+Application Preview
 
-✦ Overview
+Add your application screenshot here.
 
-Azure RAG Document Q&A is an end-to-end Retrieval-Augmented Generation (RAG) application that lets users upload PDF documents and ask natural-language questions about their content.
+Upload the image directly to the repository root and replace the placeholder below.
 
-Instead of sending a question directly to an LLM, the application follows a retrieval-first approach:
+<p align="center">
+  <img src="./rag-application.png" alt="DocuMind AI application screenshot" width="900">
+</p>
 
-Document → Chunking → Embeddings → Pinecone → Relevant Context → Groq LLM → Answer + Sources
+How It Works
 
-This architecture helps the generated response stay grounded in information retrieved from the user's indexed documents.
+System Architecture
 
-Why this project?
+<p align="center">
+  <img src="./architecture-flow.svg" alt="DocuMind AI system architecture" width="900">
+</p>
 
-The project combines a practical RAG pipeline with a production-oriented web service and cloud deployment workflow:
+RAG Pipeline
 
-📄 PDF document ingestion
+<p align="center">
+  <img src="./rag-pipeline-flow.svg" alt="DocuMind AI RAG pipeline" width="900">
+</p>
 
-✂️ Configurable text chunking
+The pipeline has two main stages:
 
-🧠 Semantic embeddings
+Document ingestion
 
-🔎 Vector similarity retrieval
+PDF → Text Extraction → Chunking → Embeddings → Pinecone
 
-🤖 LLM-based answer generation
+Question answering
 
-⚡ FastAPI web service
+Question → Query Embedding → Similarity Search → Top-K Context → Groq LLM → Answer + Sources
 
-🐳 Docker containerization
+Azure Deployment
 
-☁️ Microsoft Azure deployment
+<p align="center">
+  <img src="./azure-deployment-flow.svg" alt="DocuMind AI Azure deployment" width="900">
+</p>
 
-🔐 Environment-based secret configuration
+Key Features
 
-🧠 RAG Pipeline
+Area
 
-Document Ingestion
+Capabilities
 
-<div align="center">
+Document Processing
 
-<img src="./rag-pipeline-flow.svg" alt="RAG document ingestion and question answering flow" width="980">
+PDF upload and text extraction
 
-</div>
+Chunking
 
-The ingestion pipeline extracts text from uploaded PDFs, divides the text into manageable chunks, converts those chunks into vector embeddings, and stores the vectors in Pinecone.
-
-Question Answering
-
-When a user submits a question:
-
-The question is converted into an embedding.
-
-Pinecone performs a similarity search.
-
-The most relevant chunks are retrieved.
-
-Retrieved context is combined with the question.
-
-Groq generates the final response.
-
-The application returns the answer together with source information.
-
-🏗️ System Architecture
-
-<div align="center">
-
-<img src="./architecture-flow.svg" alt="Azure RAG system architecture" width="980">
-
-</div>
-
-Architecture at a glance
-
-Layer
-
-Responsibility
-
-Web UI
-
-PDF upload and question answering interface
-
-FastAPI
-
-Application routes and backend service
-
-Loaders
-
-PDF text extraction
-
-Splitters
-
-Text chunking and overlap handling
+Configurable chunk size and overlap
 
 Embeddings
 
-Converts text into semantic vectors
+Sentence Transformers with all-MiniLM-L6-v2
 
-Pinecone
+Retrieval
 
-Stores and retrieves document vectors
+Pinecone vector similarity search
 
-Groq
+Generation
 
-Generates natural-language answers
+Groq-powered LLM responses
 
-Docker
+API
 
-Packages the application
+FastAPI REST endpoints
 
-Azure
+UI
 
-Hosts the deployed container
+Browser-based document Q&A interface
 
-🚀 Core Features
+Deployment
 
-<table>
-<tr>
-<td width="50%" valign="top">
+Docker and Microsoft Azure
 
-📄 Document Intelligence
+Configuration
 
-PDF upload
+Environment-based settings
 
-PDF text extraction
+Sources
 
-Configurable chunk size
+Retrieved source information returned with answers
 
-Configurable chunk overlap
+Technology Stack
 
-Semantic embedding generation
-
-Multi-stage ingestion pipeline
-
-</td>
-<td width="50%" valign="top">
-
-🔍 Retrieval & Generation
-
-Semantic vector search
-
-Top-K context retrieval
-
-Context-aware prompting
-
-Groq-powered LLM generation
-
-Document-grounded responses
-
-Source information in responses
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-⚙️ Backend Engineering
-
-Modular Python architecture
-
-FastAPI REST API
-
-Environment-based configuration
-
-Health-check endpoint
-
-Separate ingestion and query flows
-
-Docker-ready application
-
-</td>
-<td width="50%" valign="top">
-
-☁️ Cloud Architecture
-
-Azure-compatible container
-
-Pinecone as external vector database
-
-Groq as external inference service
-
-Runtime secret configuration
-
-Container-based deployment workflow
-
-</td>
-</tr>
-</table>
-
-🛠️ Technology Stack
-
-<div align="center">
+Component
 
 Technology
 
-Role
+Language
 
 Python
 
-Application and RAG implementation
+Backend
 
 FastAPI
 
-Backend API and web service
-
-HTML / CSS / JavaScript
-
-Browser interface
+Embeddings
 
 Sentence Transformers
 
-Semantic embeddings
+Embedding Model
 
 all-MiniLM-L6-v2
 
-384-dimensional embedding model
+Vector Database
 
 Pinecone
 
-Vector database and similarity search
+LLM Provider
 
 Groq
 
-LLM inference
+LLM Model
 
 openai/gpt-oss-120b
-
-Configured generation model
-
-Docker
 
 Containerization
 
+Docker
+
+Cloud
+
 Microsoft Azure
 
-Cloud deployment
+Frontend
 
-</div>
+HTML / CSS / JavaScript
 
-📁 Project Structure
+Project Structure
 
-RAG_Docker_Azure_Pipeline/
+DocuMind-AI-Project/
 │
-├── data/
-│   ├── budget_speech.pdf
-│   ├── IOT Presentations.pdf
-│   └── Mastering Interactive Education.pdf
+├── data/                         # PDF documents
 │
-├── embeddings/
+├── embeddings/                   # Embedding generation
 │   ├── __init__.py
 │   └── sentence_transformer.py
 │
-├── generators/
+├── generators/                   # LLM generation
 │   ├── __init__.py
 │   └── groq_generator.py
 │
-├── loaders/
+├── loaders/                      # PDF loading
 │   ├── __init__.py
 │   └── pdf_loader.py
 │
-├── splitters/
+├── splitters/                    # Text chunking
 │   ├── __init__.py
 │   └── text_splitter.py
 │
-├── static/
-│   ├── .gitkeep
-│   └── favicon.svg
-│
-├── templates/
-│   └── index.html
-│
-├── vectorstores/
+├── vectorstores/                 # Vector database integration
 │   ├── __init__.py
 │   └── pinecone_store.py
 │
+├── static/                       # Static frontend assets
+│
+├── templates/
+│   └── index.html                # Web interface
+│
+├── config.py                     # Environment/configuration
+├── main.py                       # FastAPI application
+├── pipeline.py                   # RAG orchestration
+├── Dockerfile                    # Container definition
+├── requirements.txt              # Python dependencies
 ├── .dockerignore
 ├── .gitignore
-├── config.py
-├── Dockerfile
-├── main.py
-├── pipeline.py
-├── requirements.txt
-├── README.md
-│
-├── architecture-flow.svg
-└── rag-pipeline-flow.svg
+├── .env.example                  # Environment variable template
+└── README.md
 
-venv/, __pycache__/, and .env are local/runtime files and should not be committed to GitHub.
+Configuration
 
-⚙️ Configuration
-
-The application uses environment variables for service credentials and runtime configuration.
-
-Current configuration
-
-Parameter
-
-Value
-
-Embedding model
-
-all-MiniLM-L6-v2
-
-Embedding dimension
-
-384
-
-Chunk size
-
-500
-
-Chunk overlap
-
-50
-
-Retrieval Top-K
-
-4
-
-Pinecone cloud
-
-aws
-
-Pinecone region
-
-us-east-1
-
-Groq model
-
-openai/gpt-oss-120b
-
-Data directory
-
-./data
-
-Environment variables
-
-Create a local .env file in the project root:
+Create a .env file locally using .env.example as a template.
 
 PINECONE_API_KEY=your_pinecone_api_key
-PINECONE_INDEX_NAME=your_pinecone_index_name
+PINECONE_INDEX_NAME=your_index_name
 PINECONE_CLOUD=aws
 PINECONE_REGION=us-east-1
 
@@ -409,34 +235,23 @@ GROQ_MODEL=openai/gpt-oss-120b
 
 DATA_DIR=./data
 
-🔐 Security
+Never commit .env or real API keys to GitHub.
 
-Never commit your real .env file or API keys.
-
-Your .gitignore should contain at least:
-
-.env
-venv/
-__pycache__/
-*.pyc
-
-For Azure deployment, configure the credentials through the service's environment variables/secrets instead of putting them inside the Docker image or source code.
-
-💻 Run Locally
+Run Locally
 
 1. Clone the repository
 
 git clone https://github.com/Krushna-Chandra/DocuMind-AI-Project.git
-cd YOUR_REPOSITORY
+cd DocuMind-AI-Project
 
 2. Create a virtual environment
 
-Windows
+Windows:
 
 python -m venv venv
 venv\Scripts\activate
 
-macOS / Linux
+macOS / Linux:
 
 python3 -m venv venv
 source venv/bin/activate
@@ -445,9 +260,9 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-4. Configure .env
+4. Configure environment variables
 
-Add your Pinecone and Groq credentials to .env.
+Create .env and add your Pinecone and Groq credentials.
 
 5. Start the application
 
@@ -457,76 +272,27 @@ Open:
 
 http://localhost:8000
 
-You can then upload a PDF and ask questions about the indexed content.
+Run with Docker
 
-🐳 Run with Docker
+Build the image
 
-Build
+docker build -t documind-ai .
 
-docker build -t rag-pipeline .
+Run the container
 
-Run
-
-docker run -p 8000:8000 --env-file .env rag-pipeline
+docker run -p 8000:8000 --env-file .env documind-ai
 
 Open:
 
 http://localhost:8000
 
-The container communicates with external services for:
+The API keys are supplied at runtime rather than being included in the Docker image.
 
-Pinecone → vector storage and retrieval
-
-Groq → LLM inference
-
-The container therefore needs outbound internet access.
-
-☁️ Azure Deployment
-
-The application is containerized and can be deployed to Azure container-hosting services.
-
-<div align="center">
-
-<img src="./azure-deployment-flow.svg" alt="Azure deployment flow" width="900">
-
-</div>
-
-Deployment concept
-
-Local Project → Docker Image → Azure Container Registry → Azure Hosting Service → Public Application
-
-Typical Azure hosting choices include:
-
-Azure Container Apps
-
-Azure App Service for Containers
-
-Azure Container Instances
-
-During deployment, configure:
-
-PINECONE_API_KEY
-PINECONE_INDEX_NAME
-PINECONE_CLOUD
-PINECONE_REGION
-GROQ_API_KEY
-GROQ_MODEL
-EMBEDDING_MODEL_NAME
-EMBEDDING_DIMENSION
-CHUNK_SIZE
-CHUNK_OVERLAP
-TOP_K
-DATA_DIR
-
-The exact Azure configuration depends on the Azure service and Dockerfile used by the deployment.
-
-🔌 API Reference
+API Endpoints
 
 Method
 
 Endpoint
-
-Request
 
 Description
 
@@ -534,205 +300,175 @@ GET
 
 /
 
-—
-
 Serves the web interface
 
 GET
 
 /api/health
 
-—
-
-Health-check endpoint
+Application health check
 
 POST
 
 /api/ingest
 
-Multipart form with files
-
-Ingests PDF documents
+Uploads and ingests PDF documents
 
 POST
 
 /api/ask
 
-JSON
-
 Retrieves context and generates an answer
 
-Example /api/ask request
+Ask Example
+
+Request:
 
 {
-  "question": "What is the main topic discussed in the document?",
+  "question": "What is this document about?",
   "top_k": 4
 }
 
-A typical response contains:
+Response:
 
 {
-  "answer": "Generated answer based on retrieved document context.",
+  "answer": "Generated answer...",
   "sources": []
 }
 
-The exact response fields depend on the implementation in main.py and the RAG pipeline.
+Azure Deployment
 
-📸 More Screenshots
+The application is containerized and can be deployed to Azure using a container-based service.
 
-Upload screenshots directly into the repository root.
+Typical deployment flow:
 
-No docs/ folder is required.
+Local Application
+       ↓
+Docker Image
+       ↓
+Azure Container Registry
+       ↓
+Azure Container Service
+       ↓
+Public Application Endpoint
 
-Main Interface
+Add your Azure deployment screenshot here.
 
-rag-application.png
+<p align="center">
+  <img src="./azure-deployment.png" alt="Azure deployment screenshot" width="900">
+</p>
 
-<img src="./rag-application.png" alt="Main application interface" width="920">
+Add your live Azure application URL here:
+YOUR_AZURE_APPLICATION_URL
 
-PDF Ingestion
+RAG Configuration
 
-rag-ingestion.png
+Parameter
 
-<img src="./rag-ingestion.png" alt="PDF ingestion interface" width="920">
+Value
 
-Generated Answer
+Embedding Model
 
-rag-answer.png
+all-MiniLM-L6-v2
 
-<img src="./rag-answer.png" alt="Generated answer interface" width="920">
+Embedding Dimension
 
-Important: Replace the filenames with the exact names of the images you upload to the repository root.
+384
 
-📈 Engineering Highlights
+Chunk Size
 
-<table>
-<tr>
-<td align="center" width="25%">
+500
 
-01
+Chunk Overlap
 
-Ingest
+50
 
-PDF → Text
+Retrieval Top-K
 
-</td>
-<td align="center" width="25%">
+4
 
-02
+Pinecone Cloud
 
-Embed
+aws
 
-Text → Vectors
+Pinecone Region
 
-</td>
-<td align="center" width="25%">
+us-east-1
 
-03
+LLM Model
 
-Retrieve
+openai/gpt-oss-120b
 
-Vectors → Context
+These values are configurable through environment variables.
 
-</td>
-<td align="center" width="25%">
+Screenshots
 
-04
+Add additional screenshots here.
 
-Generate
+Suggested screenshots:
 
-Context → Answer
+Main application interface
 
-</td>
-</tr>
-</table>
+PDF upload and ingestion
 
-The design keeps the major RAG responsibilities separated into modules, making the application easier to understand, test, maintain, and extend.
+Question and answer result
 
-🔒 Security Checklist
+Retrieved sources
 
-Before making the repository public:
+Azure deployment
 
-.env is listed in .gitignore
+Upload the images directly to the repository root and reference them here.
 
-No real Pinecone API key exists in the repository
+<p align="center">
+  <img src="./screenshot-1.png" alt="Application screenshot 1" width="800">
+</p>
 
-No real Groq API key exists in the repository
+<p align="center">
+  <img src="./screenshot-2.png" alt="Application screenshot 2" width="800">
+</p>
 
-No secrets are hard-coded in Python files
+Security
 
-venv/ is excluded
+Keep .env out of version control.
 
-__pycache__/ is excluded
+Never commit Pinecone or Groq API keys.
 
-Public screenshots do not expose credentials
+Use .env.example for configuration documentation.
 
-Publicly uploaded documents are safe to share
+Store production secrets using Azure's configuration/secrets facilities.
 
-🧭 Future Improvements
+Rotate any credential immediately if it is accidentally exposed.
 
-Potential next steps:
-
-Multi-user document management
-
-Conversation history
+Future Improvements
 
 Streaming LLM responses
 
-Better source citation UI
+Improved source citation and document metadata
 
-Document deletion and re-indexing
+Authentication and user-specific document collections
 
-Metadata filtering
+Persistent document management
 
-Retrieval evaluation
+Improved retrieval and reranking
 
-Reranking
+Automated CI/CD deployment
 
-Authentication
+Monitoring and application telemetry
 
-CI/CD automation
+Author
 
-Application monitoring and telemetry
+Krushna Chandra
 
-📌 Project Status
+GitHub:
+https://github.com/Krushna-Chandra
 
-<div align="center">
+Add your LinkedIn profile here:
+YOUR_LINKEDIN_URL
 
-🟢 Deployed & Cloud Ready
+License
 
-End-to-end RAG pipeline • Dockerized • Azure deployed
+Add your license information here.
 
-</div>
-
-👨‍💻 Author
-
-<div align="center">
-
-Krushna Chandra Bindhani
-
-AI / ML • RAG • Python • FastAPI • Cloud Deployment
-
-<br>
-
-<a href="https://github.com/Krushna-Chandra">
-  <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-</a>
-
- 
-
-<a href="YOUR_LINKEDIN_URL">
-  <img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-</a>
-
-</div>
-
-<div align="center">
-
-⭐ If this project helped you, consider giving it a star.
-
-<br>
-
-Built with Python · FastAPI · Sentence Transformers · Pinecone · Groq · Docker · Azure
-
-</div>
+<p align="center">
+  <sub>Built with Python, FastAPI, Sentence Transformers, Pinecone, Groq, Docker, and Microsoft Azure.</sub>
+</p>
