@@ -1,4 +1,3 @@
-```
 # DocuMind AI
 
 <p align="center">
