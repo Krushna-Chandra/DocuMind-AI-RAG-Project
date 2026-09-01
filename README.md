@@ -83,8 +83,7 @@ The application is deployed on Microsoft Azure.
 ## System Architecture
 
 
-[DocuMind AI System Architecture](<img width="1536" height="481" alt="image" src="https://github.com/user-attachments/assets/07c2a574-5491-4927-b072-596324cfeee5" />)
-
+[DocuMind AI System Architecture](https://github.com/Krushna-Chandra/DocuMind-AI-RAG-Project/blob/main/architecture-flow.png) ([image](https://github.com/Krushna-Chandra/DocuMind-AI-RAG-Project/raw/main/architecture-flow.png))
 
 The application follows a modular architecture where document loading, text splitting, embedding generation, vector storage, retrieval, and answer generation are separated into dedicated components.
 
