@@ -1,223 +1,230 @@
-DocuMind AI — RAG Document Q&A
+```
+# DocuMind AI
 
 <p align="center">
-  <strong>Retrieval-Augmented Generation application for asking natural-language questions over PDF documents.</strong>
+  <strong>RAG-Based Document Question Answering System</strong>
 </p>
 
 <p align="center">
-  <a href="YOUR_LIVE_DEMO_URL">Live Demo</a>
-  &nbsp;•&nbsp;
-  <a href="https://github.com/Krushna-Chandra/DocuMind-AI-Project">Source Code</a>
+  Upload PDF documents, retrieve relevant information, and generate
+  context-aware answers using Retrieval-Augmented Generation.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge/Pinecone-Vector%20Database-000000" alt="Pinecone">
-  <img src="https://img.shields.io/badge/Groq-LLM-FF4F4F" alt="Groq">
-  <img src="https://img.shields.io/badge/Docker-Container-2496ED?logo=docker&logoColor=white" alt="Docker">
-  <img src="https://img.shields.io/badge/Azure-Deployment-0078D4?logo=microsoftazure&logoColor=white" alt="Azure">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Pinecone-Vector%20Database-000000?style=flat-square" alt="Pinecone">
+  <img src="https://img.shields.io/badge/Groq-LLM-orange?style=flat-square" alt="Groq">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure">
 </p>
 
-Overview
+---
 
-DocuMind AI is an end-to-end Retrieval-Augmented Generation (RAG) application that allows users to upload PDF documents and ask questions about their content.
+## Overview
 
-Instead of relying only on an LLM's general knowledge, the application:
+**DocuMind AI** is an end-to-end Retrieval-Augmented Generation (RAG) application that allows users to upload PDF documents and ask questions about their content.
 
-Extracts text from uploaded PDFs.
+The system combines:
 
-Splits the text into smaller chunks.
+- PDF document processing
+- Text chunking
+- Semantic embeddings
+- Vector similarity search
+- Context retrieval
+- Large Language Model generation
 
-Generates semantic embeddings.
+Instead of relying only on the LLM's general knowledge, DocuMind AI first retrieves relevant information from the uploaded documents and provides that information as context to the LLM before generating the final answer.
 
-Stores the embeddings in Pinecone.
+### Core Workflow
 
-Retrieves the most relevant chunks for a question.
+**PDF → Text Extraction → Chunking → Embeddings → Pinecone → Relevant Context → Groq LLM → Answer**
 
-Sends the retrieved context to an LLM through Groq.
+---
 
-Returns a context-aware answer with source information.
+## Application Preview
 
-The application is implemented as a modular FastAPI service and can be containerized with Docker and deployed to Microsoft Azure.
+<!--
+Add your application screenshot directly to the repository root.
 
-Application Preview
+Example filename:
+rag-application.png
 
-Add your application screenshot here.
-
-Upload the image directly to the repository root and replace the placeholder below.
+After uploading the image, keep the image tag below.
+-->
 
 <p align="center">
-  <img src="./rag-application.png" alt="DocuMind AI application screenshot" width="900">
+  <img src="./rag-application.png" alt="DocuMind AI Application" width="900">
 </p>
 
-How It Works
+---
 
-System Architecture
+## System Architecture
 
 <p align="center">
-  <img src="./architecture-flow.svg" alt="DocuMind AI system architecture" width="900">
+  <img src="./architecture-flow.svg" alt="DocuMind AI System Architecture" width="900">
 </p>
 
-RAG Pipeline
+The application follows a modular architecture where document loading, text splitting, embedding generation, vector storage, retrieval, and answer generation are separated into dedicated components.
+
+### Main Components
+
+| Component | Responsibility |
+|---|---|
+| FastAPI | Handles the web application and REST API |
+| PDF Loader | Extracts text from uploaded PDF documents |
+| Text Splitter | Splits extracted text into smaller chunks |
+| Sentence Transformers | Converts text into vector embeddings |
+| Pinecone | Stores and retrieves document vectors |
+| Groq | Generates answers using retrieved context |
+| Browser UI | Provides document upload and question answering |
+| Docker | Packages the application into a container |
+| Azure | Hosts the deployed application |
+
+---
+
+## RAG Pipeline
 
 <p align="center">
-  <img src="./rag-pipeline-flow.svg" alt="DocuMind AI RAG pipeline" width="900">
+  <img src="./rag-pipeline-flow.svg" alt="RAG Pipeline" width="900">
 </p>
 
-The pipeline has two main stages:
+### Document Ingestion
 
-Document ingestion
+When a PDF document is uploaded, it passes through the following process:
 
-PDF → Text Extraction → Chunking → Embeddings → Pinecone
+```text
+PDF Document
+     ↓
+Text Extraction
+     ↓
+Text Chunking
+     ↓
+Embedding Generation
+     ↓
+Pinecone Vector Storage
+```
 
-Question answering
+### Question Answering
 
-Question → Query Embedding → Similarity Search → Top-K Context → Groq LLM → Answer + Sources
+When a user asks a question:
 
-Azure Deployment
-
-<p align="center">
-  <img src="./azure-deployment-flow.svg" alt="DocuMind AI Azure deployment" width="900">
-</p>
-
-Key Features
-
-Area
-
-Capabilities
-
-Document Processing
-
-PDF upload and text extraction
-
-Chunking
-
-Configurable chunk size and overlap
-
-Embeddings
-
-Sentence Transformers with all-MiniLM-L6-v2
-
-Retrieval
-
-Pinecone vector similarity search
-
-Generation
-
-Groq-powered LLM responses
-
-API
-
-FastAPI REST endpoints
-
-UI
-
-Browser-based document Q&A interface
-
-Deployment
-
-Docker and Microsoft Azure
-
-Configuration
-
-Environment-based settings
-
+```text
+User Question
+     ↓
+Query Embedding
+     ↓
+Pinecone Similarity Search
+     ↓
+Top-K Relevant Chunks
+     ↓
+Context + Question
+     ↓
+Groq LLM
+     ↓
+Generated Answer
+     ↓
 Sources
+```
 
-Retrieved source information returned with answers
+This retrieval-first approach helps the LLM generate answers using information retrieved from the uploaded documents.
 
-Technology Stack
+---
 
-Component
+## Key Features
 
-Technology
+* PDF document upload
+* PDF text extraction
+* Configurable text chunking
+* Semantic embedding generation
+* Pinecone vector storage
+* Semantic similarity search
+* Retrieval-Augmented Generation
+* Groq-powered answer generation
+* Source information in responses
+* FastAPI REST API
+* Browser-based interface
+* Docker containerization
+* Azure deployment
+* Environment-based configuration
+* Configurable retrieval parameters
 
-Language
+---
 
-Python
+## Technology Stack
 
-Backend
+| Category             | Technology            |
+| -------------------- | --------------------- |
+| Programming Language | Python                |
+| Backend Framework    | FastAPI               |
+| Server               | Uvicorn               |
+| Embeddings           | Sentence Transformers |
+| Embedding Model      | `all-MiniLM-L6-v2`    |
+| Vector Database      | Pinecone              |
+| LLM Provider         | Groq                  |
+| LLM Model            | `openai/gpt-oss-120b` |
+| Containerization     | Docker                |
+| Cloud Platform       | Microsoft Azure       |
+| Frontend             | HTML, CSS, JavaScript |
 
-FastAPI
+---
 
-Embeddings
+## Project Structure
 
-Sentence Transformers
-
-Embedding Model
-
-all-MiniLM-L6-v2
-
-Vector Database
-
-Pinecone
-
-LLM Provider
-
-Groq
-
-LLM Model
-
-openai/gpt-oss-120b
-
-Containerization
-
-Docker
-
-Cloud
-
-Microsoft Azure
-
-Frontend
-
-HTML / CSS / JavaScript
-
-Project Structure
-
+```text
 DocuMind-AI-Project/
 │
-├── data/                         # PDF documents
+├── data/
 │
-├── embeddings/                   # Embedding generation
+├── embeddings/
 │   ├── __init__.py
-│   └── sentence_transformer.py
+│   └── ...
 │
-├── generators/                   # LLM generation
+├── generators/
 │   ├── __init__.py
-│   └── groq_generator.py
+│   └── ...
 │
-├── loaders/                      # PDF loading
+├── loaders/
 │   ├── __init__.py
-│   └── pdf_loader.py
+│   └── ...
 │
-├── splitters/                    # Text chunking
+├── splitters/
 │   ├── __init__.py
-│   └── text_splitter.py
+│   └── ...
 │
-├── vectorstores/                 # Vector database integration
+├── vectorstores/
 │   ├── __init__.py
-│   └── pinecone_store.py
-│
-├── static/                       # Static frontend assets
+│   └── ...
 │
 ├── templates/
-│   └── index.html                # Web interface
+│   └── index.html
 │
-├── config.py                     # Environment/configuration
-├── main.py                       # FastAPI application
-├── pipeline.py                   # RAG orchestration
-├── Dockerfile                    # Container definition
-├── requirements.txt              # Python dependencies
+├── static/
+│
+├── main.py
+├── pipeline.py
+├── config.py
+│
+├── Dockerfile
 ├── .dockerignore
 ├── .gitignore
-├── .env.example                  # Environment variable template
+├── .env.example
+├── requirements.txt
+│
+├── architecture-flow.svg
+├── rag-pipeline-flow.svg
+├── azure-deployment-flow.svg
+│
 └── README.md
+```
 
-Configuration
+---
 
-Create a .env file locally using .env.example as a template.
+## Configuration
 
+Create a `.env` file in the project root.
+
+```env
 PINECONE_API_KEY=your_pinecone_api_key
 PINECONE_INDEX_NAME=your_index_name
 PINECONE_CLOUD=aws
@@ -234,241 +241,318 @@ GROQ_API_KEY=your_groq_api_key
 GROQ_MODEL=openai/gpt-oss-120b
 
 DATA_DIR=./data
+```
 
-Never commit .env or real API keys to GitHub.
+### Configuration Parameters
 
-Run Locally
+| Variable               | Description                          |
+| ---------------------- | ------------------------------------ |
+| `PINECONE_API_KEY`     | Pinecone API authentication key      |
+| `PINECONE_INDEX_NAME`  | Name of the Pinecone index           |
+| `PINECONE_CLOUD`       | Pinecone cloud provider              |
+| `PINECONE_REGION`      | Pinecone deployment region           |
+| `EMBEDDING_MODEL_NAME` | Sentence Transformer embedding model |
+| `EMBEDDING_DIMENSION`  | Dimension of generated embeddings    |
+| `CHUNK_SIZE`           | Size of each document chunk          |
+| `CHUNK_OVERLAP`        | Overlap between consecutive chunks   |
+| `TOP_K`                | Number of relevant chunks retrieved  |
+| `GROQ_API_KEY`         | Groq API authentication key          |
+| `GROQ_MODEL`           | LLM used for answer generation       |
+| `DATA_DIR`             | Directory used for document data     |
 
-1. Clone the repository
+> **Security:** Never upload `.env` or real API keys to GitHub.
 
+---
+
+# Running the Application
+
+## Prerequisites
+
+Make sure the following are installed:
+
+* Python 3.x
+* pip
+* Docker *(optional for local Docker execution)*
+* Pinecone account
+* Groq account
+
+---
+
+## Run Locally
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Krushna-Chandra/DocuMind-AI-Project.git
+```
+
+### 2. Navigate to the Project
+
+```bash
 cd DocuMind-AI-Project
+```
 
-2. Create a virtual environment
+### 3. Create a Virtual Environment
 
-Windows:
+#### Windows
 
+```bash
 python -m venv venv
+```
+
+Activate it:
+
+```bash
 venv\Scripts\activate
+```
 
-macOS / Linux:
+#### macOS / Linux
 
+```bash
 python3 -m venv venv
+```
+
+Activate it:
+
+```bash
 source venv/bin/activate
+```
 
-3. Install dependencies
+### 4. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Configure environment variables
+### 5. Configure Environment Variables
 
-Create .env and add your Pinecone and Groq credentials.
+Create a `.env` file in the project root and add your Pinecone and Groq credentials.
 
-5. Start the application
+### 6. Start the Application
 
+```bash
 uvicorn main:app --reload
+```
 
-Open:
+The application will be available at:
 
+```text
 http://localhost:8000
+```
 
-Run with Docker
+---
 
-Build the image
+# Docker
 
+## Build the Docker Image
+
+```bash
 docker build -t documind-ai .
+```
 
-Run the container
+## Run the Container
 
+```bash
 docker run -p 8000:8000 --env-file .env documind-ai
+```
 
-Open:
+Open the application:
 
+```text
 http://localhost:8000
+```
 
-The API keys are supplied at runtime rather than being included in the Docker image.
+The API credentials are provided at runtime through environment variables rather than being stored inside the Docker image.
 
-API Endpoints
+---
 
-Method
+# API Reference
 
-Endpoint
+| Method | Endpoint      | Description                               |
+| ------ | ------------- | ----------------------------------------- |
+| `GET`  | `/`           | Serves the web application                |
+| `GET`  | `/api/health` | Returns application health status         |
+| `POST` | `/api/ingest` | Uploads and processes PDF documents       |
+| `POST` | `/api/ask`    | Retrieves context and generates an answer |
 
-Description
+## Ask API
 
-GET
+### Request
 
-/
-
-Serves the web interface
-
-GET
-
-/api/health
-
-Application health check
-
-POST
-
-/api/ingest
-
-Uploads and ingests PDF documents
-
-POST
-
-/api/ask
-
-Retrieves context and generates an answer
-
-Ask Example
-
-Request:
-
+```json
 {
   "question": "What is this document about?",
   "top_k": 4
 }
+```
 
-Response:
+### Response
 
+```json
 {
   "answer": "Generated answer...",
   "sources": []
 }
+```
 
-Azure Deployment
+---
 
-The application is containerized and can be deployed to Azure using a container-based service.
+# Azure Deployment
 
-Typical deployment flow:
+DocuMind AI is containerized using Docker and can be deployed to Microsoft Azure.
 
-Local Application
-       ↓
+<p align="center">
+  <img src="./azure-deployment-flow.svg" alt="Azure Deployment Architecture" width="900">
+</p>
+
+### Deployment Flow
+
+```text
+Application
+     ↓
 Docker Image
-       ↓
+     ↓
 Azure Container Registry
-       ↓
+     ↓
 Azure Container Service
-       ↓
-Public Application Endpoint
+     ↓
+Public Application
+```
 
-Add your Azure deployment screenshot here.
+The Docker image can be pushed to **Azure Container Registry (ACR)** and deployed using an Azure container hosting service.
 
-<p align="center">
-  <img src="./azure-deployment.png" alt="Azure deployment screenshot" width="900">
-</p>
+### Azure Services
 
-Add your live Azure application URL here:
-YOUR_AZURE_APPLICATION_URL
+The application can be hosted using services such as:
 
-RAG Configuration
+* Azure App Service
+* Azure Container Apps
+* Azure Container Instances
 
-Parameter
+---
 
-Value
+## Azure Deployment Screenshot
 
-Embedding Model
+<!--
+Add your Azure deployment screenshot directly to the repository root.
 
-all-MiniLM-L6-v2
-
-Embedding Dimension
-
-384
-
-Chunk Size
-
-500
-
-Chunk Overlap
-
-50
-
-Retrieval Top-K
-
-4
-
-Pinecone Cloud
-
-aws
-
-Pinecone Region
-
-us-east-1
-
-LLM Model
-
-openai/gpt-oss-120b
-
-These values are configurable through environment variables.
-
-Screenshots
-
-Add additional screenshots here.
-
-Suggested screenshots:
-
-Main application interface
-
-PDF upload and ingestion
-
-Question and answer result
-
-Retrieved sources
-
-Azure deployment
-
-Upload the images directly to the repository root and reference them here.
+Example filename:
+azure-deployment.png
+-->
 
 <p align="center">
-  <img src="./screenshot-1.png" alt="Application screenshot 1" width="800">
+  <img src="./azure-deployment.png" alt="Azure Deployment" width="900">
+</p>
+
+---
+
+# Screenshots
+
+<!--
+Add your screenshots directly to the repository root.
+
+Example filenames:
+
+screenshot-1.png
+screenshot-2.png
+screenshot-3.png
+-->
+
+## Main Interface
+
+<p align="center">
+  <img src="./screenshot-1.png" alt="Main Interface" width="850">
+</p>
+
+## Document Upload
+
+<p align="center">
+  <img src="./screenshot-2.png" alt="Document Upload" width="850">
+</p>
+
+## Question Answering
+
+<p align="center">
+  <img src="./screenshot-3.png" alt="Question Answering" width="850">
+</p>
+
+---
+
+# RAG Configuration
+
+| Parameter           |                 Value |
+| ------------------- | --------------------: |
+| Embedding Model     |    `all-MiniLM-L6-v2` |
+| Embedding Dimension |                 `384` |
+| Chunk Size          |                 `500` |
+| Chunk Overlap       |                  `50` |
+| Retrieval Top-K     |                   `4` |
+| Pinecone Cloud      |                 `aws` |
+| Pinecone Region     |           `us-east-1` |
+| Groq Model          | `openai/gpt-oss-120b` |
+
+---
+
+# Security
+
+This project uses external services that require API credentials.
+
+### Important
+
+* Do not commit `.env`.
+* Do not expose Pinecone API keys.
+* Do not expose Groq API keys.
+* Keep production credentials in Azure configuration or secrets.
+* Use `.env.example` to document required variables.
+* If an API key is accidentally exposed, revoke and regenerate it immediately.
+
+---
+
+# Project Highlights
+
+### Modular Architecture
+
+The project separates document loading, text splitting, embedding generation, vector storage, and LLM generation into independent modules.
+
+### Semantic Retrieval
+
+Documents are converted into vector embeddings and stored in Pinecone. User queries are also converted into embeddings to retrieve semantically relevant document chunks.
+
+### Context-Aware Generation
+
+The retrieved document chunks are provided to the Groq LLM as context before generating the final response.
+
+### Cloud Deployment
+
+The application is containerized with Docker and prepared for deployment on Microsoft Azure.
+
+---
+
+# Author
+
+<p align="center">
+  <strong>Krushna Chandra</strong>
 </p>
 
 <p align="center">
-  <img src="./screenshot-2.png" alt="Application screenshot 2" width="800">
+  <a href="https://github.com/Krushna-Chandra">
+    GitHub
+  </a>
 </p>
 
-Security
+<!-- Add your LinkedIn profile here if required. -->
 
-Keep .env out of version control.
+---
 
-Never commit Pinecone or Groq API keys.
+# License
 
-Use .env.example for configuration documentation.
+<!-- Add your license information here. -->
 
-Store production secrets using Azure's configuration/secrets facilities.
-
-Rotate any credential immediately if it is accidentally exposed.
-
-Future Improvements
-
-Streaming LLM responses
-
-Improved source citation and document metadata
-
-Authentication and user-specific document collections
-
-Persistent document management
-
-Improved retrieval and reranking
-
-Automated CI/CD deployment
-
-Monitoring and application telemetry
-
-Author
-
-Krushna Chandra
-
-GitHub:
-https://github.com/Krushna-Chandra
-
-Add your LinkedIn profile here:
-YOUR_LINKEDIN_URL
-
-License
-
-Add your license information here.
+---
 
 <p align="center">
-  <sub>Built with Python, FastAPI, Sentence Transformers, Pinecone, Groq, Docker, and Microsoft Azure.</sub>
+  <strong>DocuMind AI</strong>
+  <br>
+  RAG-Based Document Question Answering System
 </p>
+```
