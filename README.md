@@ -19,11 +19,11 @@
 </p>
 
 <p align="center">
-  <a href="YOUR_AZURE_LIVE_URL">🚀 Live Demo</a>
+  <a href="https://documind-ai-a6geewhdc8azg0hz.centralindia-01.azurewebsites.net/">🚀 Live Demo</a>
   &nbsp; • &nbsp;
-  <a href="https://github.com/Krushna-Chandra/DocuMind-AI-Project">💻 GitHub</a>
+  <a href="https://github.com/Krushna-Chandra/DocuMind-AI-RAG-Project">💻 GitHub</a>
   &nbsp; • &nbsp;
-  <a href="YOUR_LINKEDIN_URL">🔗 LinkedIn</a>
+  <a href="https://www.linkedin.com/in/krushna-chandra-bindhani/">🔗 LinkedIn</a>
 </p>
 
 ---
@@ -61,7 +61,7 @@ After uploading the image, keep the image tag below.
 -->
 
 <p align="center">
-  <img src="./rag-application.png" alt="DocuMind AI Application" width="900">
+  <img width="1896" height="825" alt="DocuMind AI Application" src="https://github.com/user-attachments/assets/d53ddbc8-9938-4826-8126-d6e12d4d518d" />
 </p>
 
 ---
@@ -71,12 +71,10 @@ After uploading the image, keep the image tag below.
 The application is deployed on Microsoft Azure.
 
 <p align="center">
-  <a href="YOUR_AZURE_LIVE_URL">
+  <a href="https://documind-ai-a6geewhdc8azg0hz.centralindia-01.azurewebsites.net/">
     <strong>🚀 Open DocuMind AI</strong>
   </a>
 </p>
-
-> Replace `YOUR_AZURE_LIVE_URL` with your deployed Azure application URL.
 
 ---
 
@@ -453,47 +451,30 @@ The application can be hosted using services such as:
 
 ## Azure Deployment Screenshot
 
-<!--
-Add your Azure deployment screenshot directly to the repository root.
-
-Example filename:
-azure-deployment.png
--->
-
 <p align="center">
-  <img src="./azure-deployment.png" alt="Azure Deployment" width="900">
+  <img width="1317" height="566" alt="Azure Deployment" src="https://github.com/user-attachments/assets/ec2a3618-d3d9-46a1-80b0-4cf00cd69525" />
 </p>
 
 ---
 
 # Screenshots
 
-<!--
-Add your screenshots directly to the repository root.
-
-Example filenames:
-
-screenshot-1.png
-screenshot-2.png
-screenshot-3.png
--->
-
 ## Main Interface
 
 <p align="center">
-  <img src="./screenshot-1.png" alt="Main Interface" width="850">
+  <img width="1896" height="825" alt="Main Interface" src="https://github.com/user-attachments/assets/925a400f-3d31-44de-ac4c-3c32b7fec1fe" />
 </p>
 
 ## Document Upload
 
 <p align="center">
-  <img src="./screenshot-2.png" alt="Document Upload" width="850">
+  <img width="1899" height="828" alt="Document Upload" src="https://github.com/user-attachments/assets/78382e0f-c90c-46ed-83c5-9bb5c42003e9" />
 </p>
 
 ## Question Answering
 
 <p align="center">
-  <img src="./screenshot-3.png" alt="Question Answering" width="850">
+  <img width="1659" height="758" alt="Question Answering" src="https://github.com/user-attachments/assets/035308e3-83e2-4cfe-8d70-d6bbb9702bef" />
 </p>
 
 ---
@@ -557,7 +538,7 @@ The application is containerized with Docker and prepared for deployment on Micr
 <p align="center">
   <a href="https://github.com/Krushna-Chandra">GitHub</a>
   &nbsp; • &nbsp;
-  <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
+  <a href="https://www.linkedin.com/in/krushna-chandra-bindhani/">LinkedIn</a>
 </p>
 
 ---
