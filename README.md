@@ -82,10 +82,9 @@ The application is deployed on Microsoft Azure.
 
 ## System Architecture
 
-<p align="center">
-  <img src="<img width="1536" height="481" alt="image" src="https://github.com/user-attachments/assets/841f6b17-c26f-4105-b46f-3c56e6cc29f4" />
-" alt="DocuMind AI System Architecture" width="900">
-</p>
+
+[DocuMind AI System Architecture](<img width="1536" height="481" alt="image" src="https://github.com/user-attachments/assets/07c2a574-5491-4927-b072-596324cfeee5" />)
+
 
 The application follows a modular architecture where document loading, text splitting, embedding generation, vector storage, retrieval, and answer generation are separated into dedicated components.
 
