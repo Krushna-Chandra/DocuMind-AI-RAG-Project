@@ -1,151 +1,173 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:0F172A,50:1E3A8A,100:0891B2&text=Azure%20RAG%20Document%20Q%26A&fontSize=42&fontColor=FFFFFF&fontAlignY=42&desc=Retrieval-Augmented%20Generation%20for%20Intelligent%20PDF%20Question%20Answering&descAlignY=62&descSize=16&animation=fadeIn" width="100%" alt="Azure RAG Document Q&A"/>
+⚡ Azure RAG Document Q&A
+
+Intelligent PDF Question Answering with Retrieval-Augmented Generation
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Pinecone-Vector%20DB-000000?style=for-the-badge" alt="Pinecone">
+  <img src="https://img.shields.io/badge/Groq-LLM-F54A45?style=for-the-badge" alt="Groq">
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Sentence%20Transformers-Embeddings-6B4FBB?style=for-the-badge" alt="Sentence Transformers">
+  <img src="https://img.shields.io/badge/Docker-Container-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Microsoft%20Azure-Cloud-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure">
+</p>
 
 <br>
 
-<a href="YOUR_AZURE_APPLICATION_URL">
-<img src="https://img.shields.io/badge/%E2%9C%A6%20LIVE%20DEMO-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Live Demo"/>
-</a>
-&nbsp;
-<a href="YOUR_GITHUB_REPOSITORY_URL">
-<img src="https://img.shields.io/badge/%E2%9F%A8%2F%E2%9F%A9%20SOURCE%20CODE-111827?style=for-the-badge&logo=github&logoColor=white" alt="Source Code"/>
-</a>
-
-<br><br>
-
-<img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
-<img src="https://img.shields.io/badge/Pinecone-Vector%20DB-000000?style=flat-square" alt="Pinecone"/>
-<img src="https://img.shields.io/badge/Groq-LLM-F55036?style=flat-square" alt="Groq"/>
-<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker"/>
-<img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure"/>
-
-<br><br>
-
-<table>
-<tr>
-<td align="center"><b>📄 PDF Ingestion</b></td>
-<td align="center"><b>🔎 Semantic Retrieval</b></td>
-<td align="center"><b>🧠 LLM Generation</b></td>
-<td align="center"><b>☁️ Azure Deployment</b></td>
-</tr>
-</table>
-
-</div>
-
-<div align="center">
-
-⚡ Ask Your Documents. Get Context-Aware Answers.
-
-Upload a PDF → index its content → ask questions → retrieve relevant context → generate an answer with an LLM.
-
-</div>
+<p>
+  <a href="YOUR_LIVE_DEMO_URL">
+    <img src="https://img.shields.io/badge/✦%20LIVE%20DEMO-0B84F3?style=for-the-badge" alt="Live Demo">
+  </a>
+  &nbsp;
+  <a href="https://github.com/Krushna-Chandra/DocuMind-AI-Project">
+    <img src="https://img.shields.io/badge/⌘%20SOURCE%20CODE-111827?style=for-the-badge&logo=github&logoColor=white" alt="Source Code">
+  </a>
+</p>
 
 <br>
+
+Upload a PDF → understand its content → retrieve the right context → generate a grounded answer.
+
+</div>
+
+🖼️ Application Preview
 
 <!--
-  ============================================================
-  PROJECT SHOWCASE IMAGE
-  Add your main application screenshot here.
+  Upload your screenshot directly into the repository root.
+  No docs/ or images/ folder is required.
 
   Example:
-  <img src="docs/screenshots/home.png" width="92%" alt="Application Preview"/>
-  ============================================================
+  rag-application.png
+
+  Then keep the filename below exactly the same.
 -->
 
 <div align="center">
 
-[📸 Add your main application screenshot here]
+<img src="./rag-application.png" alt="Azure RAG Document Q&A application" width="920">
+
+<br>
+
+<sub><b>Live application interface</b> — replace the filename above with your actual screenshot filename.</sub>
 
 </div>
 
-✦ What Is This?
+✦ Overview
 
-Azure RAG Document Q&A is an end-to-end Retrieval-Augmented Generation application designed to answer natural-language questions from uploaded PDF documents.
+Azure RAG Document Q&A is an end-to-end Retrieval-Augmented Generation (RAG) application that lets users upload PDF documents and ask natural-language questions about their content.
 
-Instead of asking an LLM to answer from its general knowledge alone, the application first searches the user's indexed documents for relevant information and then provides that context to the language model.
+Instead of sending a question directly to an LLM, the application follows a retrieval-first approach:
 
-The result
+Document → Chunking → Embeddings → Pinecone → Relevant Context → Groq LLM → Answer + Sources
 
-Your documents → semantic retrieval → relevant context → grounded LLM response
+This architecture helps the generated response stay grounded in information retrieved from the user's indexed documents.
 
-The application is built as a modular Python service with FastAPI, uses Sentence Transformers for embeddings, Pinecone for vector search, Groq for LLM inference, Docker for containerization, and Microsoft Azure for cloud deployment.
+Why this project?
 
-◈ How It Works
+The project combines a practical RAG pipeline with a production-oriented web service and cloud deployment workflow:
+
+📄 PDF document ingestion
+
+✂️ Configurable text chunking
+
+🧠 Semantic embeddings
+
+🔎 Vector similarity retrieval
+
+🤖 LLM-based answer generation
+
+⚡ FastAPI web service
+
+🐳 Docker containerization
+
+☁️ Microsoft Azure deployment
+
+🔐 Environment-based secret configuration
+
+🧠 RAG Pipeline
+
+Document Ingestion
 
 <div align="center">
 
-Document → Vector → Retrieval → Generation
+<img src="./rag-pipeline-flow.svg" alt="RAG document ingestion and question answering flow" width="980">
 
 </div>
 
-┌─────────────────────────────────────────────────────────────────┐
-│                        DOCUMENT INGESTION                       │
-└─────────────────────────────────────────────────────────────────┘
+The ingestion pipeline extracts text from uploaded PDFs, divides the text into manageable chunks, converts those chunks into vector embeddings, and stores the vectors in Pinecone.
 
-        PDF
-         │
-         ▼
-   ┌─────────────┐
-   │ PDF Loader  │
-   └──────┬──────┘
-          │
-          ▼
-   ┌─────────────┐
-   │Text Splitter│
-   └──────┬──────┘
-          │
-          ▼
-   ┌──────────────────┐
-   │ Sentence          │
-   │ Transformer       │
-   │ Embeddings        │
-   └────────┬─────────┘
-            │
-            ▼
-   ┌──────────────────┐
-   │     Pinecone     │
-   │   Vector Store   │
-   └──────────────────┘
+Question Answering
 
+When a user submits a question:
 
-┌─────────────────────────────────────────────────────────────────┐
-│                         QUERY PIPELINE                          │
-└─────────────────────────────────────────────────────────────────┘
+The question is converted into an embedding.
 
-      User Question
-            │
-            ▼
-     Query Embedding
-            │
-            ▼
-   ┌──────────────────┐
-   │     Pinecone     │
-   │ Similarity Search│
-   └────────┬─────────┘
-            │
-            ▼
-     Top-K Relevant
-         Chunks
-            │
-            ▼
-   ┌──────────────────┐
-   │ Context + Query  │
-   └────────┬─────────┘
-            │
-            ▼
-       ┌──────────┐
-       │ Groq LLM │
-       └────┬─────┘
-            │
-            ▼
-     ┌───────────────┐
-     │ Answer +      │
-     │ Sources       │
-     └───────────────┘
+Pinecone performs a similarity search.
 
-◈ Core Capabilities
+The most relevant chunks are retrieved.
+
+Retrieved context is combined with the question.
+
+Groq generates the final response.
+
+The application returns the answer together with source information.
+
+🏗️ System Architecture
+
+<div align="center">
+
+<img src="./architecture-flow.svg" alt="Azure RAG system architecture" width="980">
+
+</div>
+
+Architecture at a glance
+
+Layer
+
+Responsibility
+
+Web UI
+
+PDF upload and question answering interface
+
+FastAPI
+
+Application routes and backend service
+
+Loaders
+
+PDF text extraction
+
+Splitters
+
+Text chunking and overlap handling
+
+Embeddings
+
+Converts text into semantic vectors
+
+Pinecone
+
+Stores and retrieves document vectors
+
+Groq
+
+Generates natural-language answers
+
+Docker
+
+Packages the application
+
+Azure
+
+Hosts the deployed container
+
+🚀 Core Features
 
 <table>
 <tr>
@@ -157,7 +179,9 @@ PDF upload
 
 PDF text extraction
 
-Configurable chunking
+Configurable chunk size
+
+Configurable chunk overlap
 
 Semantic embedding generation
 
@@ -168,13 +192,15 @@ Multi-stage ingestion pipeline
 
 🔍 Retrieval & Generation
 
-Vector similarity search
+Semantic vector search
 
 Top-K context retrieval
 
 Context-aware prompting
 
 Groq-powered LLM generation
+
+Document-grounded responses
 
 Source information in responses
 
@@ -183,197 +209,162 @@ Source information in responses
 <tr>
 <td width="50%" valign="top">
 
-⚙️ Engineering
+⚙️ Backend Engineering
 
-Modular architecture
+Modular Python architecture
 
 FastAPI REST API
 
 Environment-based configuration
 
-Dockerized application
-
 Health-check endpoint
+
+Separate ingestion and query flows
+
+Docker-ready application
 
 </td>
 <td width="50%" valign="top">
 
-☁️ Cloud Ready
+☁️ Cloud Architecture
 
-Docker container deployment
+Azure-compatible container
 
-Azure-compatible architecture
+Pinecone as external vector database
 
-Azure application configuration
+Groq as external inference service
 
-External vector database
+Runtime secret configuration
 
-External LLM inference
+Container-based deployment workflow
 
 </td>
 </tr>
 </table>
 
-◈ Architecture at a Glance
-
-                         ┌─────────────────┐
-                         │      USER       │
-                         └────────┬────────┘
-                                  │
-                                  ▼
-                       ┌────────────────────┐
-                       │    FASTAPI APP     │
-                       │    Web Interface   │
-                       └─────────┬──────────┘
-                                 │
-               ┌─────────────────┴─────────────────┐
-               │                                   │
-               ▼                                   ▼
-        ┌──────────────┐                    ┌──────────────┐
-        │ PDF INGESTION│                    │   QUESTION   │
-        └──────┬───────┘                    └──────┬───────┘
-               │                                   │
-               ▼                                   ▼
-        ┌──────────────┐                    ┌──────────────┐
-        │ PDF LOADER   │                    │ QUERY EMBEDD │
-        └──────┬───────┘                    └──────┬───────┘
-               │                                   │
-               ▼                                   ▼
-        ┌──────────────┐                    ┌──────────────┐
-        │ TEXT SPLITTER│                    │   PINECONE   │
-        └──────┬───────┘                    │ VECTOR SEARCH│
-               │                            └──────┬───────┘
-               ▼                                   │
-        ┌──────────────┐                            ▼
-        │  EMBEDDINGS  │                    ┌──────────────┐
-        └──────┬───────┘                    │  TOP-K       │
-               │                            │  CHUNKS      │
-               ▼                            └──────┬───────┘
-        ┌──────────────┐                           │
-        │   PINECONE   │◄──────────────────────────┘
-        │ VECTOR STORE │
-        └──────────────┘                           │
-                                                  ▼
-                                         ┌─────────────────┐
-                                         │   GROQ LLM      │
-                                         │   GENERATION    │
-                                         └────────┬────────┘
-                                                  │
-                                                  ▼
-                                         ┌─────────────────┐
-                                         │ ANSWER + SOURCES│
-                                         └─────────────────┘
-
-◈ Technology Stack
+🛠️ Technology Stack
 
 <div align="center">
 
-Layer
-
 Technology
 
-Language
+Role
 
 Python
 
-API / Backend
+Application and RAG implementation
 
 FastAPI
 
-Embeddings
-
-Sentence Transformers
-
-Embedding Model
-
-all-MiniLM-L6-v2
-
-Vector Database
-
-Pinecone
-
-LLM Provider
-
-Groq
-
-LLM Model
-
-openai/gpt-oss-120b
-
-Containerization
-
-Docker
-
-Cloud Platform
-
-Microsoft Azure
-
-Frontend
+Backend API and web service
 
 HTML / CSS / JavaScript
 
+Browser interface
+
+Sentence Transformers
+
+Semantic embeddings
+
+all-MiniLM-L6-v2
+
+384-dimensional embedding model
+
+Pinecone
+
+Vector database and similarity search
+
+Groq
+
+LLM inference
+
+openai/gpt-oss-120b
+
+Configured generation model
+
+Docker
+
+Containerization
+
+Microsoft Azure
+
+Cloud deployment
+
 </div>
 
-◈ Project Structure
+📁 Project Structure
 
 RAG_Docker_Azure_Pipeline/
 │
-├── data/                         # Application data
+├── data/
+│   ├── budget_speech.pdf
+│   ├── IOT Presentations.pdf
+│   └── Mastering Interactive Education.pdf
 │
-├── embeddings/                  # Embedding generation
+├── embeddings/
 │   ├── __init__.py
 │   └── sentence_transformer.py
 │
-├── generators/                  # LLM generation
+├── generators/
 │   ├── __init__.py
 │   └── groq_generator.py
 │
-├── loaders/                     # Document loading
+├── loaders/
 │   ├── __init__.py
 │   └── pdf_loader.py
 │
-├── splitters/                   # Text chunking
+├── splitters/
 │   ├── __init__.py
 │   └── text_splitter.py
 │
-├── static/                      # Frontend static assets
+├── static/
+│   ├── .gitkeep
+│   └── favicon.svg
 │
 ├── templates/
-│   └── index.html               # Main web interface
+│   └── index.html
 │
-├── vectorstores/                # Vector database layer
+├── vectorstores/
 │   ├── __init__.py
 │   └── pinecone_store.py
 │
 ├── .dockerignore
-├── .env.example
 ├── .gitignore
-├── config.py                    # Environment configuration
-├── Dockerfile                   # Container definition
-├── main.py                      # FastAPI application
-├── pipeline.py                  # RAG orchestration
-├── requirements.txt             # Python dependencies
-└── README.md
+├── config.py
+├── Dockerfile
+├── main.py
+├── pipeline.py
+├── requirements.txt
+├── README.md
+│
+├── architecture-flow.svg
+└── rag-pipeline-flow.svg
 
-◈ RAG Configuration
+venv/, __pycache__/, and .env are local/runtime files and should not be committed to GitHub.
+
+⚙️ Configuration
+
+The application uses environment variables for service credentials and runtime configuration.
+
+Current configuration
 
 Parameter
 
-Configuration
+Value
 
-Embedding Model
+Embedding model
 
 all-MiniLM-L6-v2
 
-Embedding Dimension
+Embedding dimension
 
 384
 
-Chunk Size
+Chunk size
 
 500
 
-Chunk Overlap
+Chunk overlap
 
 50
 
@@ -381,25 +372,28 @@ Retrieval Top-K
 
 4
 
-Pinecone Cloud
+Pinecone cloud
 
 aws
 
-Pinecone Region
+Pinecone region
 
 us-east-1
 
-Groq Model
+Groq model
 
 openai/gpt-oss-120b
 
-◈ Configuration
+Data directory
 
-Create a .env file locally using .env.example as the template.
+./data
+
+Environment variables
+
+Create a local .env file in the project root:
 
 PINECONE_API_KEY=your_pinecone_api_key
 PINECONE_INDEX_NAME=your_pinecone_index_name
-
 PINECONE_CLOUD=aws
 PINECONE_REGION=us-east-1
 
@@ -415,13 +409,24 @@ GROQ_MODEL=openai/gpt-oss-120b
 
 DATA_DIR=./data
 
-Security: Never commit the real .env file or API keys to GitHub.
+🔐 Security
 
-◈ Run Locally
+Never commit your real .env file or API keys.
+
+Your .gitignore should contain at least:
+
+.env
+venv/
+__pycache__/
+*.pyc
+
+For Azure deployment, configure the credentials through the service's environment variables/secrets instead of putting them inside the Docker image or source code.
+
+💻 Run Locally
 
 1. Clone the repository
 
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Krushna-Chandra/DocuMind-AI-Project.git
 cd YOUR_REPOSITORY
 
 2. Create a virtual environment
@@ -431,7 +436,7 @@ Windows
 python -m venv venv
 venv\Scripts\activate
 
-Linux / macOS
+macOS / Linux
 
 python3 -m venv venv
 source venv/bin/activate
@@ -440,276 +445,294 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-4. Configure environment variables
+4. Configure .env
 
-Create .env from .env.example and add your Pinecone and Groq credentials.
+Add your Pinecone and Groq credentials to .env.
 
-5. Start FastAPI
+5. Start the application
 
 uvicorn main:app --reload
 
-6. Open the application
+Open:
 
 http://localhost:8000
 
-◈ Run with Docker
+You can then upload a PDF and ask questions about the indexed content.
+
+🐳 Run with Docker
 
 Build
 
-docker build -t rag-docker-azure-pipeline .
+docker build -t rag-pipeline .
 
 Run
 
-docker run -p 8000:8000 --env-file .env rag-docker-azure-pipeline
+docker run -p 8000:8000 --env-file .env rag-pipeline
 
-Then open:
+Open:
 
 http://localhost:8000
 
-◈ Azure Deployment
+The container communicates with external services for:
 
-The application is packaged as a Docker container and deployed to Microsoft Azure.
+Pinecone → vector storage and retrieval
 
-┌───────────────┐
-│ GitHub Source │
-└───────┬───────┘
-        │
-        ▼
-┌───────────────┐
-│ Docker Build  │
-└───────┬───────┘
-        │
-        ▼
-┌─────────────────────┐
-│ Azure Container     │
-│ Registry (ACR)      │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│ Azure Container     │
-│ Hosting             │
-└──────────┬──────────┘
-           │
-           ▼
-     ┌────────────┐
-     │ Live App   │
-     └────────────┘
+Groq → LLM inference
 
-The deployed application connects to:
+The container therefore needs outbound internet access.
 
-Azure
-  │
-  ├── Application Hosting
-  │
-  └── Container Registry
+☁️ Azure Deployment
 
-Pinecone
-  └── Vector Storage + Retrieval
+The application is containerized and can be deployed to Azure container-hosting services.
 
-Groq
-  └── LLM Inference
+<div align="center">
 
-Configure the required environment variables through the Azure application's configuration settings.
+<img src="./azure-deployment-flow.svg" alt="Azure deployment flow" width="900">
 
-◈ API Reference
+</div>
+
+Deployment concept
+
+Local Project → Docker Image → Azure Container Registry → Azure Hosting Service → Public Application
+
+Typical Azure hosting choices include:
+
+Azure Container Apps
+
+Azure App Service for Containers
+
+Azure Container Instances
+
+During deployment, configure:
+
+PINECONE_API_KEY
+PINECONE_INDEX_NAME
+PINECONE_CLOUD
+PINECONE_REGION
+GROQ_API_KEY
+GROQ_MODEL
+EMBEDDING_MODEL_NAME
+EMBEDDING_DIMENSION
+CHUNK_SIZE
+CHUNK_OVERLAP
+TOP_K
+DATA_DIR
+
+The exact Azure configuration depends on the Azure service and Dockerfile used by the deployment.
+
+🔌 API Reference
 
 Method
 
 Endpoint
 
-Purpose
+Request
+
+Description
 
 GET
 
 /
 
-Web application
+—
+
+Serves the web interface
 
 GET
 
 /api/health
 
-Health check
+—
+
+Health-check endpoint
 
 POST
 
 /api/ingest
 
-PDF ingestion
+Multipart form with files
+
+Ingests PDF documents
 
 POST
 
 /api/ask
 
-Question answering
+JSON
 
-Health
+Retrieves context and generates an answer
 
-GET /api/health
-
-Ingest
-
-POST /api/ingest
-
-Accepts PDF files through multipart form data.
-
-Ask
-
-POST /api/ask
-
-Example request:
+Example /api/ask request
 
 {
   "question": "What is the main topic discussed in the document?",
   "top_k": 4
 }
 
-Example response:
+A typical response contains:
 
 {
   "answer": "Generated answer based on retrieved document context.",
-  "sources": [
-    "Relevant source information"
-  ]
+  "sources": []
 }
 
-The exact response structure depends on the current API implementation.
+The exact response fields depend on the implementation in main.py and the RAG pipeline.
 
-◈ Screenshots
+📸 More Screenshots
+
+Upload screenshots directly into the repository root.
+
+No docs/ folder is required.
+
+Main Interface
+
+rag-application.png
+
+<img src="./rag-application.png" alt="Main application interface" width="920">
+
+PDF Ingestion
+
+rag-ingestion.png
+
+<img src="./rag-ingestion.png" alt="PDF ingestion interface" width="920">
+
+Generated Answer
+
+rag-answer.png
+
+<img src="./rag-answer.png" alt="Generated answer interface" width="920">
+
+Important: Replace the filenames with the exact names of the images you upload to the repository root.
+
+📈 Engineering Highlights
+
+<table>
+<tr>
+<td align="center" width="25%">
+
+01
+
+Ingest
+
+PDF → Text
+
+</td>
+<td align="center" width="25%">
+
+02
+
+Embed
+
+Text → Vectors
+
+</td>
+<td align="center" width="25%">
+
+03
+
+Retrieve
+
+Vectors → Context
+
+</td>
+<td align="center" width="25%">
+
+04
+
+Generate
+
+Context → Answer
+
+</td>
+</tr>
+</table>
+
+The design keeps the major RAG responsibilities separated into modules, making the application easier to understand, test, maintain, and extend.
+
+🔒 Security Checklist
+
+Before making the repository public:
+
+.env is listed in .gitignore
+
+No real Pinecone API key exists in the repository
+
+No real Groq API key exists in the repository
+
+No secrets are hard-coded in Python files
+
+venv/ is excluded
+
+__pycache__/ is excluded
+
+Public screenshots do not expose credentials
+
+Publicly uploaded documents are safe to share
+
+🧭 Future Improvements
+
+Potential next steps:
+
+Multi-user document management
+
+Conversation history
+
+Streaming LLM responses
+
+Better source citation UI
+
+Document deletion and re-indexing
+
+Metadata filtering
+
+Retrieval evaluation
+
+Reranking
+
+Authentication
+
+CI/CD automation
+
+Application monitoring and telemetry
+
+📌 Project Status
 
 <div align="center">
 
-🖥️ Application Interface
+🟢 Deployed & Cloud Ready
 
-<!--
-Add your screenshot here:
-
-<img src="docs/screenshots/home.png" width="92%" alt="Application Interface"/>
--->
-
-Add screenshot here
-
-<br><br>
-
-📄 Document Upload
-
-<!--
-<img src="docs/screenshots/upload.png" width="92%" alt="PDF Upload"/>
--->
-
-Add screenshot here
-
-<br><br>
-
-💬 RAG Question Answering
-
-<!--
-<img src="docs/screenshots/chat.png" width="92%" alt="Question Answering"/>
--->
-
-Add screenshot here
-
-<br><br>
-
-☁️ Azure Deployment
-
-<!--
-<img src="docs/screenshots/azure.png" width="92%" alt="Azure Deployment"/>
--->
-
-Add screenshot here
+End-to-end RAG pipeline • Dockerized • Azure deployed
 
 </div>
 
-◈ Demo
+👨‍💻 Author
 
 <div align="center">
 
-Live Application
+Krushna Chandra Bindhani
 
-<a href="YOUR_AZURE_APPLICATION_URL">
-<img src="https://img.shields.io/badge/OPEN%20LIVE%20APPLICATION-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Open Live Application"/>
-</a>
-
-<br><br>
-
-Repository
-
-<a href="YOUR_GITHUB_REPOSITORY_URL">
-<img src="https://img.shields.io/badge/VIEW%20SOURCE%20CODE-111827?style=for-the-badge&logo=github&logoColor=white" alt="View Source Code"/>
-</a>
-
-</div>
-
-◈ Security
-
-Never commit sensitive credentials to source control.
-
-Keep private
-
-.env
-API keys
-Cloud credentials
-Passwords
-Private documents
-
-Commit safely
-
-.env.example
-
-with placeholder values only.
-
-If a credential is accidentally exposed, revoke and rotate it immediately.
-
-◈ Future Roadmap
-
-✓ PDF ingestion
-✓ Semantic embeddings
-✓ Vector retrieval
-✓ LLM generation
-✓ FastAPI API
-✓ Docker containerization
-✓ Azure deployment
-
-→ Conversation memory
-→ Multi-document management
-→ Metadata filtering
-→ Hybrid retrieval
-→ Reranking
-→ Authentication
-→ Automated testing
-→ CI/CD
-→ Monitoring & evaluation
-
-◈ Author
-
-<div align="center">
-
-YOUR NAME
-
-AI/ML · Generative AI · RAG · Python · Cloud
+AI / ML • RAG • Python • FastAPI • Cloud Deployment
 
 <br>
 
-<a href="YOUR_GITHUB_PROFILE_URL">
-<img src="https://img.shields.io/badge/GitHub-111827?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+<a href="https://github.com/Krushna-Chandra">
+  <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
 </a>
-&nbsp;
-<a href="YOUR_LINKEDIN_PROFILE_URL">
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+
+ 
+
+<a href="YOUR_LINKEDIN_URL">
+  <img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
 
 </div>
 
 <div align="center">
 
-Built with
-
-Python · FastAPI · Sentence Transformers · Pinecone · Groq · Docker · Microsoft Azure
+⭐ If this project helped you, consider giving it a star.
 
 <br>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:0891B2,50:1E3A8A,100:0F172A" width="100%" alt="Footer"/>
+Built with Python · FastAPI · Sentence Transformers · Pinecone · Groq · Docker · Azure
 
 </div>
